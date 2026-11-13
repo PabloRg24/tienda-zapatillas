@@ -1,0 +1,194 @@
+/* Estilos de la tienda. Colores tomados del logo: gris carbón, rosa suave y blanco. */
+:root {
+    --carbon: #2b2b2b;
+    --carbon-suave: #555;
+    --rosa: #f4b8b5;
+    --rosa-claro: #fdf0ef;
+    --rosa-oscuro: #c96f6a;
+    --blanco: #ffffff;
+    --borde: #ececec;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: var(--carbon);
+    background: var(--rosa-claro);
+    /* Columna a pantalla completa para que el pie quede siempre abajo */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a { color: var(--rosa-oscuro); }
+
+/* Cabecera blanca con el logo y una línea rosa inferior */
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 32px;
+    background: var(--blanco);
+    border-bottom: 4px solid var(--rosa);
+}
+.logo img { height: 110px; display: block; }
+
+nav { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+nav a {
+    color: var(--carbon);
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+}
+nav a:hover { border-bottom-color: var(--rosa); }
+nav span { color: var(--carbon-suave); font-size: 0.9rem; }
+
+main { flex: 1; width: 100%; max-width: 1000px; margin: 32px auto; padding: 0 16px; }
+
+h2 {
+    display: inline-block;
+    margin-top: 0;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 4px solid var(--rosa);
+}
+h3 { color: var(--carbon-suave); }
+
+footer {
+    text-align: center;
+    color: var(--blanco);
+    background: var(--carbon);
+    font-size: 0.85rem;
+    padding: 20px;
+}
+
+/* Mensajes */
+.aviso {
+    background: var(--blanco);
+    border-left: 5px solid var(--rosa);
+    padding: 12px;
+    border-radius: 4px;
+}
+.errores {
+    background: #fde8e8;
+    border-left: 5px solid #b91c1c;
+    padding: 12px 12px 12px 32px;
+    border-radius: 4px;
+    color: #7f1d1d;
+}
+
+/* Formularios */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 440px;
+    background: var(--blanco);
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.formulario label { display: flex; flex-direction: column; gap: 4px; font-size: 0.9rem; font-weight: bold; }
+input, select, textarea {
+    padding: 9px;
+    border: 1px solid #d6d6d6;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--rosa-oscuro);
+    box-shadow: 0 0 0 3px var(--rosa);
+}
+
+/* Centra títulos (se usa en las páginas de administración) */
+.centrado { text-align: center; }
+
+/* Login y registro centrados en la página */
+.acceso { max-width: 440px; margin: 0 auto; text-align: center; }
+.acceso .formulario { text-align: left; }
+
+/* Recuadro con los datos de prueba del login */
+.demo {
+    margin: 0;
+    padding: 10px;
+    background: var(--rosa-claro);
+    border: 1px dashed var(--rosa-oscuro);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* Botones: carbón por defecto y rosa al pasar el ratón */
+button {
+    padding: 9px 16px;
+    border: none;
+    border-radius: 4px;
+    background: var(--carbon);
+    color: var(--blanco);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+button:hover { background: var(--rosa); color: var(--carbon); }
+button.secundario { background: var(--blanco); color: var(--carbon); border: 1px solid var(--carbon); }
+button.secundario:hover { background: var(--rosa-claro); }
+button.peligro { background: #b91c1c; }
+button.peligro:hover { background: #7f1d1d; color: var(--blanco); }
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--blanco);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+th { background: var(--carbon); color: var(--blanco); }
+th, td { padding: 10px; border-bottom: 1px solid var(--borde); text-align: left; }
+tr:hover td { background: var(--rosa-claro); }
+.acciones { display: flex; gap: 10px; align-items: center; margin-top: 16px; }
+td.acciones { margin-top: 0; }
+.miniatura { width: 60px; height: 40px; object-fit: cover; border-radius: 4px; }
+
+/* Catálogo en tarjetas */
+.catalogo { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.tarjeta {
+    background: var(--blanco);
+    border-radius: 8px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-top: 4px solid var(--rosa);
+    transition: transform 0.2s;
+}
+.tarjeta:hover { transform: translateY(-3px); }
+.tarjeta img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; }
+.tarjeta h3 { margin: 4px 0 0; color: var(--carbon); }
+.tarjeta p { margin: 0; }
+.marca { color: var(--rosa-oscuro); font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
+.precio { font-weight: bold; font-size: 1.2rem; }
+.tarjeta form { margin-top: auto; }
+.anadir { display: flex; flex-direction: column; gap: 8px; }
+.anadir label { display: flex; align-items: center; justify-content: space-between; font-size: 0.9rem; }
+.anadir input { width: 70px; }
+.tarjeta button { width: 100%; }
+
+/* Móvil: cabecera centrada */
+@media (max-width: 600px) {
+    header { justify-content: center; padding: 8px 16px; }
+    .logo img { height: 70px; }
+}
